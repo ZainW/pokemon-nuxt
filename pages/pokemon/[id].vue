@@ -15,8 +15,8 @@ const { data: pokemon } = await useFetch(`https://pokeapi.co/api/v2/pokemon/${id
 <template>
   <div v-if="pokemon">
     <UCard>
-      Name: {{ pokemon.name }}
-      <NuxtImg :src="pokemon.sprites.front_default" />
+      Name: <span class="capitalize">{{ pokemon.name }}</span>
+      <NuxtImg style="image-rendering: pixelated;" :height="500" :width="500" :src="pokemon.sprites.front_default" />
     </UCard>
   </div>
 </template>

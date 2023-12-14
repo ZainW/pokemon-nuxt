@@ -6,13 +6,10 @@ const { data: pokemon } = await useFetch('https://pokeapi.co/api/v2/pokemon?limi
 })
 
 const schema = z.object({
-  count: z.number(),
-  next: z.string(),
-  previous: z.null(),
   results: z.array(z.object({ name: z.string(), id: z.number().optional() })),
 })
 
-const pokemonList = schema.parse(pokemon).results
+const pokemonList = schema.parse(pokemon.value).results
 const router = useRouter()
 const groups = computed(() => {
   return pokemonList.map((pokemon, index: number) => {
@@ -27,8 +24,12 @@ const groups = computed(() => {
 
 <template>
   <div>
+    <UModal :model-value="true">
+
+
     <UCommandPalette
       command-attribute="label"
+      @update:model-value="router.push(`/pokemon/${$event.id}`)"
       :groups="[{
         key: 'pokemon',
         label: 'Pokemon',
@@ -44,6 +45,7 @@ const groups = computed(() => {
         resultLimit: 10,
       }"
     />
+  </UModal>
     <slot />
   </div>
 </template>
