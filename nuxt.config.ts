@@ -1,9 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const pokemonArray = [];
+const pokemonArray = []
 
-for (let i = 1; i <= 1011; i++) {
-  pokemonArray.push("/pokemon/" + i);
-}
+for (let i = 1; i <= 1011; i++)
+  pokemonArray.push(`/pokemon/${i}`)
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/ui', '@nuxt/image'],
@@ -12,13 +12,16 @@ export default defineNuxtConfig({
     shim: false,
   },
   routeRules: {
-    '/': { isr: true},
+    '/': { isr: true },
     '/pokemon/**': { isr: true },
   },
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: pokemonArray
-    }
+      routes: pokemonArray,
+    },
+  },
+  image: {
+    domains: ['raw.githubusercontent.com']
   }
 })

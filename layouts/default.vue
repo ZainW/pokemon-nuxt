@@ -22,7 +22,7 @@ const pokemonSchema = z.object({
   id: z.number(),
 })
 type pokemonType = z.infer<typeof pokemonSchema>
-const { data: pokemonList } = await useFetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0', {
+const { data: pokemonList } = await useLazyFetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0', {
   key: 'all-pokemon',
   transform: (data: any) => {
     const pokemonList = data.results.map((pokemon: pokemonType, index: number) => {
