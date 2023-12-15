@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { z } from 'zod'
+
 const pokemonSchema = z.object({
   name: z.string(),
   sprites: z.object({ front_default: z.string() }),
