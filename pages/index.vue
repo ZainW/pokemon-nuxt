@@ -37,6 +37,7 @@ async function navigateToPokemon(id: number) {
 <style>
 #cards:hover > .card:not(:hover) {
   opacity: 0.5;
+  transform: scale(0.9);
 }
 .cards:hover > .card:hover {
   transform: scale(1.15);
