@@ -29,7 +29,7 @@ async function navigateToPokemon(id: number) {
   <div v-if="pokemons" id="cards" class="grid lg:grid-cols-7 xs:grid-cols-2 sm:grid-cols-3 sm:gap-2 gap-4">
     <UCard v-for="pokemon in pokemons" :key="pokemon.id" class="flex justify-center align-center card hover:z-10 hover:scale-125 transition-all hover:shadow-xl" @click="navigateToPokemon(pokemon.id)">
       <span class="capitalize">{{ pokemon.name }} </span>
-      <NuxtImg :loading="'eager'" :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`" :height="80" :width="80" />
+      <NuxtImg loading="eager" :src="`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`" :height="80" :width="80" />
     </UCard>
   </div>
 </template>

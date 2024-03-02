@@ -9,6 +9,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/ui', '@nuxt/image'],
   typescript: {
     typeCheck: true,
+    strict: true,
     shim: false,
   },
   routeRules: {
@@ -22,6 +23,6 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    domains: ['raw.githubusercontent.com']
-  }
+    domains: ['raw.githubusercontent.com'],
+  },
 })
